@@ -9,7 +9,7 @@ namespace Interfaces.Repository
 {
    public interface IProductRepository
     {
-        IEnumerable<Product> GetAll(int site);
+        IEnumerable<Product> GetAll();
         Product GetById(int id);
         bool Save(Product product);
         bool Update(Product product);

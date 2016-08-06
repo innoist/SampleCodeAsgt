@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Interfaces.Implementation;
 using Microsoft.Practices.Unity;
 
 namespace Implementation
@@ -11,7 +12,8 @@ namespace Implementation
     {
         public static void RegisterType(IUnityContainer unityContainer)
         {
-            TypeRegisteration.RegisterType(unityContainer);
+           Repository.TypeRegisteration.RegisterType(unityContainer);
+            unityContainer.RegisterType<IProductService, ProductService>();
         }
 
     }

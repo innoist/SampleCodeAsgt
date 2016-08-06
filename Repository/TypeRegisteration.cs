@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Interfaces.Repository;
 using Microsoft.Practices.Unity;
 
 namespace Repository
@@ -12,6 +13,7 @@ namespace Repository
     {
         public static void RegisterType(IUnityContainer unityContainer)
         {
+            unityContainer.RegisterType<IProductRepository, IProductRepository>();
         }
     }
 }

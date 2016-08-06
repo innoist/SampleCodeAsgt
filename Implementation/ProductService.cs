@@ -11,9 +11,10 @@ namespace Implementation
     public class ProductService : IProductService
     {
 
-        public IEnumerable<Product> GetAll(int site)
+
+        public IEnumerable<Product> GetAll()
         {
-            throw new Exception();
+            return new List<Product>();
         }
 
         public Product GetById(int id)

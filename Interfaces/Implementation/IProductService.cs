@@ -9,7 +9,7 @@ namespace Interfaces.Implementation
 {
     public interface IProductService
     {
-        IEnumerable<Product> GetAll(int site);
+        IEnumerable<Product> GetAll();
         Product GetById(int id);
         bool Save(Product product);
         bool Update(Product product);

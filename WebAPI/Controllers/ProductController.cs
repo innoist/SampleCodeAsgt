@@ -5,16 +5,26 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Interfaces.Implementation;
 
 namespace WebAPI.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    
+
     public class ProductController : ApiController
     {
-        //[EnableCors(origins: "http://localhost:10155", headers: "*", methods: "*")]
+
+        public IProductService ProductService { get; set; }
+
+      
+        public ProductController(IProductService productService)
+        {
+            this.ProductService = productService;
+        }
         // GET: api/Product
         public IEnumerable<string> Get()
         {
+            ProductService.GetAll();
             return new string[] { "value1", "value2" };
         }
 
