@@ -5,11 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using ExceptionHandling;
 using Interfaces.Implementation;
 
 namespace WebAPI.Controllers
 {
-    
+   
+
+    [ApiException]
 
     public class ProductController : ApiController
     {
@@ -21,9 +24,11 @@ namespace WebAPI.Controllers
         {
             this.ProductService = productService;
         }
+        
         // GET: api/Product
         public IEnumerable<string> Get()
         {
+            
             ProductService.GetAll();
             return new string[] { "value1", "value2" };
         }

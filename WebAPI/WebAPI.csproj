@@ -265,6 +265,10 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExceptionHandling\ExceptionHandling.csproj">
+      <Project>{db42cd4d-b3df-4a8f-8c7d-a91a75515ec8}</Project>
+      <Name>ExceptionHandling</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Implementation\Implementation.csproj">
       <Project>{0974b509-635c-4eec-8997-0752708dadb2}</Project>
       <Name>Implementation</Name>
