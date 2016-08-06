@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <meta charset="utf-8"/>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-app="productApp">
+
+<h1>Welcome to Sample App</h1>
+    <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+    <ng-view></ng-view>
+    
+        <script src="/Scripts/angular.js"></script>
+        <script src="/Scripts/angular-route.js"></script>
+        <script src="Scripts/spin.min.js"></script>
+    <script src="Scripts/angular-spinner.js"></script>
+<script src="app/JS/app.js"></script>
+    
+    <script src="app/JS/Product/productsController.js"></script>
+<script src="app/JS/Product/productsService.js"></script>
+<script src="app/JS/Constants.js"></script>
+    
+</body>
+
+</html>
