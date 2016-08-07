@@ -3,6 +3,7 @@
 
     var app = angular.module("productApp", ['ngRoute', 'angularSpinner']);
 
+    //Interceptors to show busy indicator
     app.factory('myInterceptor', ['$log', '$rootScope', 'usSpinnerService', function ($log, $rootScope, usSpinnerService) {
         
         if ($rootScope.activeCalls == undefined) {
@@ -48,6 +49,9 @@
 
         return myInterceptor;
     }]);
+
+
+
     app.config(['$httpProvider', '$routeProvider', '$logProvider', function ($httpProvider, $routeProvider, $logProvider) {
         $httpProvider.interceptors.push('myInterceptor');
         $logProvider.debugEnabled(true);
@@ -56,6 +60,12 @@
                 templateUrl: '/app/Views/Products.htm',
                 
                 controller: 'productsController',
+                controllerAs: 'pd'
+            })
+            .when('/CreateProduct', {
+                templateUrl: '/app/Views/AddUpdateProduct.html',
+
+                controller: 'productsCreateController',
                 controllerAs: 'pd'
             })
             .otherwise({ redirectTo: '/products' });

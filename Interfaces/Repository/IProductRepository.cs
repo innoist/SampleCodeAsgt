@@ -11,7 +11,9 @@ namespace Interfaces.Repository
     {
         IEnumerable<Product> GetAll();
         Product Find(long id);
-        
+       void Add(Product product);
+        void SaveChanges();
+
         void Update(Product product);
         void Delete(Product product);
     }

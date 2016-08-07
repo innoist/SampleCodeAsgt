@@ -8,9 +8,12 @@ app.controller('productsController', ['$scope', 'productsService', function ($sc
 
 
     function productsLoaded(data, responseText, response) {
-        
+        debugger
+        $location.url('#/products');
     }
     function productsFailed(data, data2) {
-        debugger
+        
     }
+
+
 }]);

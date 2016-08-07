@@ -32,12 +32,15 @@ namespace Implementation
 
         public void Save(Product product)
         {
-            _productRepository.Update(product);
+            _productRepository.Add(product);
+            _productRepository.SaveChanges();
+            
         }
 
         public void Update(Product product)
         {
             _productRepository.Update(product);
+            _productRepository.SaveChanges();
         }
 
         public bool Delete(int id)
