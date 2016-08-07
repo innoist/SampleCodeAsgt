@@ -23,9 +23,9 @@ namespace Models.Domain
         [Required]
         public string ProductName { get; set; }
         /// <summary>
-        /// Price of the product
+        /// Description of the product
         /// </summary>
-        public float Price { get; set; }
+        public string Description { get; set; }
         /// <summary>
         /// Stock Count
         /// </summary>

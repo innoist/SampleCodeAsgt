@@ -27,22 +27,29 @@ namespace Implementation
 
         public Product GetById(int id)
         {
-            return new Product();
+            return _productRepository.Find(id);
         }
 
-        public bool Save(Product product)
+        public void Save(Product product)
         {
-            return true;
+            _productRepository.Update(product);
         }
 
-        public bool Update(Product product)
+        public void Update(Product product)
         {
-            return true;
+            _productRepository.Update(product);
         }
 
         public bool Delete(int id)
         {
-            return true;
+            var toDelete = _productRepository.Find(id);
+            if (toDelete != null)
+            {
+                _productRepository.Delete(toDelete);
+                return true;
+            }
+            return false;
+
         }
     }
 }

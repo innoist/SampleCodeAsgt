@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using ExceptionHandling;
 using Interfaces.Implementation;
+using Models.Domain;
 
 namespace WebAPI.Controllers
 {
@@ -26,34 +27,38 @@ namespace WebAPI.Controllers
         }
         
         // GET: api/Product
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
             
          var abc=   ProductService.GetAll().ToList();
-            if(abc.Count>0)
-                return new string[] { "value1", "value2" };
-            return new string[] { "value1", "value2" };
+
+            return ProductService.GetAll();
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return ProductService.GetById(id);
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        public void Post(Product product)
         {
+            ProductService.Save(product);
         }
 
+
         // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(Product product)
         {
+            ProductService.Update(product);
+
         }
 
         // DELETE: api/Product/5
         public void Delete(int id)
         {
+            ProductService.Delete(id);
         }
     }
 }

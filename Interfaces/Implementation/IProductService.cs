@@ -11,8 +11,8 @@ namespace Interfaces.Implementation
     {
         IEnumerable<Product> GetAll();
         Product GetById(int id);
-        bool Save(Product product);
-        bool Update(Product product);
+        void Save(Product product);
+        void Update(Product product);
 
         bool Delete(int id);
     }

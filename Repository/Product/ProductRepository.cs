@@ -31,25 +31,12 @@ namespace Repository.Product
 
         
 
-        public Model.Product GetById(int id)
-        {
-            return new Model.Product();
-        }
+    
 
-        public bool Save(Model.Product product)
-        {
-            return true;
-        }
+       
 
-        public bool Update(Model.Product product)
-        {
-            return true;
-        }
+       
 
-        public bool Delete(int id)
-        {
-            return true;
-        }
 
     }
 }
