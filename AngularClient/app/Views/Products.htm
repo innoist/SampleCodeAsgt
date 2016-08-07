@@ -13,5 +13,37 @@
             <i class="fa fa-plus"></i>
         </span>New
     </a>
+
+
+    <table>
+        <tr class="headerTable">
+        
+            <td>Name</td>
+            <td>Description</td>
+            <td>Stock</td>
+        
+        </tr>
+        <tr ng-repeat="x in productsLoaded">
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.ProductName }}
+            </td>
+            <td ng-if="$even">
+                {{ x.ProductName }}
+            </td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.Description }}
+            </td>
+            <td ng-if="$even">
+                {{ x.Description }}
+            </td>
+
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.Stock }}
+            </td>
+            <td ng-if="$even">
+                {{ x.Stock }}
+            </td>
+        </tr>
+    </table>
 </div>
 

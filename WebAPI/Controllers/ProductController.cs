@@ -42,9 +42,10 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/Product
-        public void Post(Product product)
+        public IHttpActionResult Post(Product product)
         {
             ProductService.Save(product);
+            return Ok(true);
         }
 
 

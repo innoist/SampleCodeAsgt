@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="app\JS\Product\productsCreateController.js" />
     <Content Include="app\Views\AddUpdateProduct.html" />
+    <Content Include="Content\custom.css" />
     <Content Include="packages.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />

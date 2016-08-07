@@ -1,0 +1,10 @@
+﻿table, td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.headerTable {
+    background: black !important;
+    color: white !important;
+}
