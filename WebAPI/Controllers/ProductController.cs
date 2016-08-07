@@ -29,7 +29,9 @@ namespace WebAPI.Controllers
         public IEnumerable<string> Get()
         {
             
-            ProductService.GetAll();
+         var abc=   ProductService.GetAll().ToList();
+            if(abc.Count>0)
+                return new string[] { "value1", "value2" };
             return new string[] { "value1", "value2" };
         }
 

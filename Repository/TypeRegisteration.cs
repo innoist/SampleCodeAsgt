@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces.Repository;
 using Microsoft.Practices.Unity;
-
+using Repository.Product;
 namespace Repository
 {
     public static class TypeRegisteration
@@ -13,7 +13,7 @@ namespace Repository
     {
         public static void RegisterType(IUnityContainer unityContainer)
         {
-            unityContainer.RegisterType<IProductRepository, IProductRepository>();
+            unityContainer.RegisterType<IProductRepository, ProductRepository>();
         }
     }
 }

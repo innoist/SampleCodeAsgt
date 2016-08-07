@@ -1,19 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces.Repository;
+using Microsoft.Practices.Unity;
 using Model= Models.Domain;
-
+using Repository.Product.BaseRepository;
 namespace Repository.Product
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : BaseRepository<Model.Product>,IProductRepository
     {
-        public IEnumerable<Model.Product> GetAll()
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ProductRepository(IUnityContainer container)
+            : base(container)
         {
-            return new List<Model.Product>();
+
         }
+        #endregion
+        protected override IDbSet<Model.Product> DbSet
+        {
+            get { return db.Products; }
+        }
+
+        
 
         public Model.Product GetById(int id)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces.Implementation;
+using Interfaces.Repository;
 using Models.Domain;
 
 namespace Implementation
@@ -11,10 +12,17 @@ namespace Implementation
     public class ProductService : IProductService
     {
 
+        private IProductRepository _productRepository;
+
+        public ProductService(IProductRepository _productRepository)
+        {
+            this._productRepository = _productRepository;
+        }
 
         public IEnumerable<Product> GetAll()
         {
-            return new List<Product>();
+            return _productRepository.GetAll();
+          //  return new List<Product>();
         }
 
         public Product GetById(int id)
