@@ -29,10 +29,10 @@ namespace Repository.Product.BaseRepository
 
         public BaseRepository(IUnityContainer container) : base()
         {
-            //this.container = container;
-            //string connectionString = ConfigurationManager.ConnectionStrings["ProductContext"].ConnectionString;
-            //db = (ProductContext)container.Resolve(typeof(ProductContext), new ParameterOverride("connectionString", connectionString));
-            db = new ProductDbContext();
+            this.container = container;
+            string connectionString = ConfigurationManager.ConnectionStrings["AsgtContext"].ConnectionString;
+            //db = (ProductDbContext)container.Resolve(typeof(ProductContext), new ParameterOverride("connectionString", connectionString));
+           db = new ProductDbContext(connectionString);
         }
         #region Public
         /// <summary>

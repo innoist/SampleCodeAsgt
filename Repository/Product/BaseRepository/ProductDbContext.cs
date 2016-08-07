@@ -9,11 +9,11 @@ namespace Repository.Product.BaseRepository
 {
     public class ProductDbContext : DbContext
     {
-        
-        //public ProductDbContext(string connectionString) : base(connectionString)
-        //{
 
-        //}
+        public ProductDbContext(string connectionString) : base(connectionString)
+        {
+
+        }
 
 
 
