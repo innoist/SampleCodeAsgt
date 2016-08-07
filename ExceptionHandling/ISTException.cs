@@ -11,6 +11,11 @@ namespace ExceptionHandling
     /// </summary>
     public sealed class ISTException : Exception
     {
+
+        public ISTException(string Message )
+        {
+            this.Message = Message;
+        }
         /// <summary>
         /// Error message
         /// </summary>

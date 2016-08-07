@@ -30,15 +30,24 @@ namespace WebAPI.Controllers
         public IEnumerable<Product> Get()
         {
             
-         var abc=   ProductService.GetAll().ToList();
-
-            return ProductService.GetAll();
+         return  ProductService.GetAll().ToList();
+            
         }
 
+        /// <summary>
+        /// This will be a testable Function
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Product/5
         public Product Get(int id)
         {
-            return ProductService.GetById(id);
+            if(id<=0)
+                throw new ISTException("Product Id is not valid");
+            var toReturn =  ProductService.GetById(id);
+            if (toReturn != null)
+                return toReturn;
+            throw new Exception("Product not found");
         }
 
         // POST: api/Product
