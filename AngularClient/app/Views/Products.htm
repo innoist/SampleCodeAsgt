@@ -1,49 +1,55 @@
 ﻿
 
-<div>
-    <p>
-        Hello products
-    </p>
-
-    <div ng-bind="hello"></div>
-    <div ng-bind="pd.hello"></div>
-
-    <a href="#/CreateProduct" class="btn btn-info btn-labeled">
-        <span class="btn-label">
-            <i class="fa fa-plus"></i>
-        </span>New
-    </a>
-
-
-    <table>
-        <tr class="headerTable">
+<div class="col-md-12">
+     <div class="col-md-12 text-center">
         
-            <td>Name</td>
-            <td>Description</td>
-            <td>Stock</td>
-        
-        </tr>
-        <tr ng-repeat="x in productsLoaded">
-            <td ng-if="$odd" style="background-color:#f1f1f1">
-                {{ x.ProductName }}
-            </td>
-            <td ng-if="$even">
-                {{ x.ProductName }}
-            </td>
-            <td ng-if="$odd" style="background-color:#f1f1f1">
-                {{ x.Description }}
-            </td>
-            <td ng-if="$even">
-                {{ x.Description }}
-            </td>
+        <h5 class="bg-info"><b class="text-danger">Client Project Structure:</b> Seperate web project in Angular [routeProvider, Interceptor,$http,constant Service,Angular Dependency Injection,Seperate Controllers/services,busy indeicator spinner, $log,]</h5>
+        <h5 class="bg-success"><b class="text-danger">Server Side Project:</b> Web API, Seperate Implementation and Repository project, Seperation of concern, IOC using DI, Code First, Generic Repository Pattern, Exception handling (logging can also be done)</h5>
+    </div>
+    <div >
 
-            <td ng-if="$odd" style="background-color:#f1f1f1">
-                {{ x.Stock }}
-            </td>
-            <td ng-if="$even">
-                {{ x.Stock }}
-            </td>
-        </tr>
-    </table>
+        
+
+        <a href="#/CreateProduct">
+            <button type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                Add Product
+            </button>
+        </a>
+        <span class="badge">
+            # of records : <span>{{pd.products.length}}</span>
+        </span>
+    </div>
+    <div  class="table-responsive">
+        <table class="table">
+            <tr class="headerTable">
+
+                <td>Name</td>
+                <td>Description</td>
+                <td>Stock</td>
+                <td>View</td>
+
+            </tr>
+            <tr ng-repeat="x in pd.products | orderBy:'ProductName'">
+
+                <td>
+                    {{ x.ProductName }}
+                </td>
+                <td>
+                    {{ x.Description }}
+                </td>
+                <td>
+                    {{ x.StockCount }}
+                </td>
+
+                <td>
+                    <button ng-click="pd.viewProduct(x.Id)" type="button" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 

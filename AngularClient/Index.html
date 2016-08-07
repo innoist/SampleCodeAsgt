@@ -9,10 +9,15 @@
 </head>
 <body ng-app="productApp">
 
-<h1>Welcome to Sample App</h1>
-    <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
-    <ng-view></ng-view>
-    
+<div class="text-center">
+    <h2>Welcome to Sample App using AngularJS 1.x and Web API</h2>
+</div>
+<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+<div class="col-md-12">
+    <div class="col-md-1"></div>
+    <ng-view class="col-md-10"></ng-view>
+    <div class="col-md-1"></div>
+</div>
         <script src="/Scripts/angular.js"></script>
         <script src="/Scripts/angular-route.js"></script>
         <script src="Scripts/spin.min.js"></script>

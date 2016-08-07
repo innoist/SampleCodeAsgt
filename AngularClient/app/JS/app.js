@@ -68,6 +68,14 @@
                 controller: 'productsCreateController',
                 controllerAs: 'pd'
             })
+
+             .when('/CreateProduct/:id', {
+                 templateUrl: '/app/Views/AddUpdateProduct.html',
+
+                 controller: 'productsCreateController',
+                 controllerAs: 'pd'
+             })
+
             .otherwise({ redirectTo: '/products' });
 
 

@@ -22,7 +22,6 @@ namespace Implementation
         public IEnumerable<Product> GetAll()
         {
             return _productRepository.GetAll();
-          //  return new List<Product>();
         }
 
         public Product GetById(int id)
@@ -32,7 +31,7 @@ namespace Implementation
 
         public void Save(Product product)
         {
-            _productRepository.Add(product);
+            _productRepository.Update(product);
             _productRepository.SaveChanges();
             
         }

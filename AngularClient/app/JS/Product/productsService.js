@@ -10,6 +10,15 @@ app.service('productsService', ['$http','productConstants', function ($http,prod
     };
 
 
+    this.loadProductById = function (id,onSuccess, onError) {
+
+        onError = onError || function () { alert('Failure saving Data'); };
+        $http
+            .get(prodConstants.url.apiURL + prodConstants.url.products+"/"+id)
+            .success(onSuccess)
+            .error(onError);
+    };
+
     this.saveProduct = function (data, onReady, onError) {
 
         //var urlMetaData = window.frsApiUrl + '/api/LoadMetaData';
