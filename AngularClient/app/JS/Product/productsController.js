@@ -1,22 +1,24 @@
 ﻿
-var app = angular.module('productApp');
-app.controller('productsController', ['$scope', 'productsService', '$rootScope', '$location', function ($scope, productsService, $rootScope, $location) {
-    
-    var vm = this;
-    vm.products = [];
+    var app = angular.module('ProductModule', ['oc.lazyLoad']);
+    app.controller('productsController', [
+        '$scope', 'productsService', '$rootScope', '$location', '$ocLazyLoad', function($scope, productsService, $rootScope, $location, $ocLazyLoad) {
 
-    $rootScope.loadProduct = $rootScope.loadProduct == undefined ? true : false;
+            var vm = this;
+            vm.products = [];
 
-        productsService.loadProduct(productsLoaded);
-    
-    function productsLoaded(data, responseText, response) {
-        vm.products = data;
+            $rootScope.loadProduct = $rootScope.loadProduct == undefined ? true : false;
 
-    
-        vm.viewProduct = function(productId) {
-            $location.url('CreateProduct/' + productId);
-        }}
-    
+            productsService.loadProduct(productsLoaded);
+
+            function productsLoaded(data, responseText, response) {
+                vm.products = data;
 
 
-}]);
+                vm.viewProduct = function(productId) {
+                    $location.url('CreateProduct/' + productId);
+                }
+            }
+
+
+        }
+    ])

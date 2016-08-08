@@ -1,6 +1,10 @@
-﻿var app = angular.module('productApp');
-app.service('productsService', ['$http','productConstants', function ($http,prodConstants) {
-    this.loadProduct= function (onSuccess, onError) {
+﻿
+var app = angular.module('productApp');
+////PRODUCT SERVICES
+app.service('productsService', ['$http', 'productConstants', function ($http, prodConstants) {
+
+    ////LOAD PRODUCT Services using Controller
+    this.loadProduct = function (onSuccess, onError) {
         
         onError = onError || function () { alert('Failure saving Data'); };
         $http
@@ -9,7 +13,7 @@ app.service('productsService', ['$http','productConstants', function ($http,prod
             .error(onError);
     };
 
-
+    ////LOAD PRODUCT By ID
     this.loadProductById = function (id,onSuccess, onError) {
 
         onError = onError || function () { alert('Failure saving Data'); };
@@ -18,7 +22,7 @@ app.service('productsService', ['$http','productConstants', function ($http,prod
             .success(onSuccess)
             .error(onError);
     };
-
+    ////Save Product
     this.saveProduct = function (data, onReady, onError) {
 
         //var urlMetaData = window.frsApiUrl + '/api/LoadMetaData';

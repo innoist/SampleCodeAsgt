@@ -13,7 +13,8 @@ namespace WebAPI
             
             // register all your components with the container here
             // it is NOT necessary to register your controllers
-            
+            //Goes to register implementation
+
             TypeRegisteration.RegisterType(container);
             
             

@@ -1,7 +1,7 @@
 ﻿
 (function () {
 
-    var app = angular.module("productApp", ['ngRoute', 'angularSpinner']);
+    var app = angular.module("productApp", ['ngRoute', 'angularSpinner', 'oc.lazyLoad']);
 
     //Interceptors to show busy indicator
     app.factory('myInterceptor', ['$log', '$rootScope', 'usSpinnerService', function ($log, $rootScope, usSpinnerService) {
@@ -52,29 +52,63 @@
 
 
 
-    app.config(['$httpProvider', '$routeProvider', '$logProvider', function ($httpProvider, $routeProvider, $logProvider) {
+    app.config(['$httpProvider', '$routeProvider', '$logProvider', '$ocLazyLoadProvider', function ($httpProvider, $routeProvider, $logProvider, $ocLazyLoadProvider) {
         $httpProvider.interceptors.push('myInterceptor');
         $logProvider.debugEnabled(true);
+        //////// Lazyloading configuration
+        $ocLazyLoadProvider.config({
+            			modules: [
+            				{
+            					name: 'ProductModule',
+            					files: ['app/JS/Product/productsController.js']
+            				},
+			                {
+			                    name: 'ProductAddModule',
+			                    files: ['app/JS/Product/productsCreateController.js']
+			                    
+			                }
+            			],
+            asyncLoader: $script
+        });
+
+        ////////DEFINING ROUTES
         $routeProvider.
             when('/products', {
                 templateUrl: '/app/Views/Products.htm',
                 
                 controller: 'productsController',
-                controllerAs: 'pd'
+                controllerAs: 'pd',
+                resolve: { 
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('ProductModule');
+                    }]
+                }
             })
             .when('/CreateProduct', {
                 templateUrl: '/app/Views/AddUpdateProduct.html',
 
                 controller: 'productsCreateController',
-                controllerAs: 'pd'
+                controllerAs: 'pd',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('ProductAddModule');
+                    }]
+                }
             })
 
              .when('/CreateProduct/:id', {
                  templateUrl: '/app/Views/AddUpdateProduct.html',
 
                  controller: 'productsCreateController',
-                 controllerAs: 'pd'
-             })
+                 controllerAs: 'pd',
+                 resolve: {
+                    loadMyCtrl: [
+                        '$ocLazyLoad', function($ocLazyLoad) {
+                            return $ocLazyLoad.load('ProductAddModule');
+                        }
+                    ]
+                }
+            })
 
             .otherwise({ redirectTo: '/products' });
 
@@ -83,5 +117,5 @@
 
     }]);
 
-   
+
 })();
