@@ -12,20 +12,17 @@ namespace WebAPI.Test
     [TestClass]
     public class ProductControllTest
     {
-        
+        /// <summary>
+        /// Testing Get method of controller which is used to find a product
+        /// </summary>
 
         [TestClass]
         public class Get
         {
 
-            //public IProductService ProductService { get; set; }
-
-            //public Get(IProductService productService)
-            //{
-            //    this.ProductService = productService;
-
-            //}
-            //All the test methods of Get function will come in this class
+            /// <summary>
+            /// Test the exception when Id less than zero is passed
+            /// </summary>
             [TestMethod]
             [ExpectedException(typeof(ISTException))]
             public void IdLessThanEqualZero_ReturnISTException()
@@ -43,6 +40,9 @@ namespace WebAPI.Test
                 //Assert
             }
 
+            /// <summary>
+            /// Test if no product is found
+            /// </summary>
             [TestMethod]
             [ExpectedException(typeof(Exception))]
             public void ProductNotFound_ReturnException()
@@ -59,7 +59,11 @@ namespace WebAPI.Test
 
                 //Assert
             }
-
+           
+            
+            /// <summary>
+            /// Test if valid id is passed and a product is returned
+            /// </summary>
             [TestMethod]
             public void CorrectProductId_ReturnProduct()
             {

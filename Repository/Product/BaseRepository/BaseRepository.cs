@@ -31,14 +31,14 @@ namespace Repository.Product.BaseRepository
         {
             this.container = container;
             string connectionString = ConfigurationManager.ConnectionStrings["AsgtContext"].ConnectionString;
-            //db = (ProductDbContext)container.Resolve(typeof(ProductContext), new ParameterOverride("connectionString", connectionString));
+            
            db = new ProductDbContext(connectionString);
         }
         #region Public
         /// <summary>
         /// base Db Context
         /// </summary>
-        // ReSharper disable once InconsistentNaming
+        
         public ProductDbContext db;
 
         /// <summary>

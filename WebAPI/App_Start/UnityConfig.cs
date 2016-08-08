@@ -15,7 +15,7 @@ namespace WebAPI
             // it is NOT necessary to register your controllers
             
             TypeRegisteration.RegisterType(container);
-            // e.g. container.RegisterType<ITestService, TestService>();
+            
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

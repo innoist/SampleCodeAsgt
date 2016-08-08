@@ -12,7 +12,9 @@ namespace Implementation
     {
         public static void RegisterType(IUnityContainer unityContainer)
         {
+           
             unityContainer.RegisterType<IProductService, ProductService>();
+            //Goes to register repository
             Repository.TypeRegisteration.RegisterType(unityContainer);
 
         }

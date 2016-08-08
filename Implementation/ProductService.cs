@@ -19,23 +19,41 @@ namespace Implementation
             this._productRepository = _productRepository;
         }
 
+        /// <summary>
+        /// Returns all the products in the system
+        /// </summary>
+        /// <returns></returns>
+
         public IEnumerable<Product> GetAll()
         {
             return _productRepository.GetAll();
         }
 
+        /// <summary>
+        /// Return the product against the specifed ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Product GetById(int id)
         {
             return _productRepository.Find(id);
         }
 
+        /// <summary>
+        /// Saves the product in the database
+        /// Calls BesRepository method which sees whether to add or update
+        /// </summary>
+        /// <param name="product"></param>
         public void Save(Product product)
         {
             _productRepository.Update(product);
             _productRepository.SaveChanges();
             
         }
-
+        /// <summary>
+        /// Update the database
+        /// </summary>
+        /// <param name="product"></param>
         public void Update(Product product)
         {
             _productRepository.Update(product);
